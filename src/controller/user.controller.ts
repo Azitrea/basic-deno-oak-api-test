@@ -1,8 +1,8 @@
 import { User } from "../models/user.model.ts";
 import userService from '../service/user.service.ts';
 
-const getAllUsers = ({ request, response }: { request: any, response: any }) => { 
-  const users: User[] = userService.getAllUsers();
+const getAllUsers = async ({ request, response }: { request: any, response: any }) => { 
+  const users: User[] = await userService.getAllUsers();
   response.body = users;
 };
 

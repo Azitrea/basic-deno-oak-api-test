@@ -1,8 +1,8 @@
 import { User } from "../models/user.model.ts";
+import userDao from '../database/user-dao.service.ts';
 
-const getAllUsers = () => {
-  const users: User[] = [];
-  return users;
+const getAllUsers = async (): Promise<User[]> => {
+  return userDao.getAllUsers();
 };
 
 const createUser = (user: User) => {
