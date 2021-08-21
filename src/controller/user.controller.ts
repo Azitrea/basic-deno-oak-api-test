@@ -6,26 +6,23 @@ const getAllUsers = async ({ request, response }: { request: any, response: any 
   response.body = users;
 };
 
-const createUser = ({ request, response }: { request: any, response: any }) => { 
-  const userID: number = userService.createUser(request.body);
+const createUser = async ({ request, response }: { request: any, response: any }) => { 
+  const userID: number = await userService.createUser(request.body);
   response.body = userID;
 };
 
-const getOneUser = ({ request, response, params }: { request: any, response: any, params: { id: string } }) => {
-  // Check for valid id
-  const user: User = userService.getOneUser(+params.id);
+const getOneUser = async ({ request, response, params }: { request: any, response: any, params: { id: string } }) => {
+  const user: User = await userService.getOneUser(+params.id);
   response.body = user;
 };
 
-const updateUser = ({ request, response, params }: { request: any, response: any, params: { id: string } }) => {
-  // Check for valid id
-  const userID: number = userService.updateUser(request.body);
+const updateUser = async ({ request, response, params }: { request: any, response: any, params: { id: string } }) => {
+  const userID: number = await userService.updateUser(request.body);
   response.body = userID;
 };
 
-const deleteUser = ({ request, response, params }: { request: any, response: any, params: { id: string } }) => { 
-  // Check for valid id
-  const userID: number = userService.deleteUser(+params.id);
+const deleteUser = async ({ request, response, params }: { request: any, response: any, params: { id: string } }) => { 
+  const userID: number = await userService.deleteUser(+params.id);
   response.body = userID;
 };
 

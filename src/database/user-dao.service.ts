@@ -3,11 +3,19 @@ import { TABLE } from '../models/database.model.ts';
 import { User } from '../models/user.model.ts';
 
 const getAllUsers = async (): Promise<User[]> => {
-  return client.query(`SELECT * FROM ${TABLE.USER}`);;
+  // return client.query(`SELECT * FROM ${TABLE.USER}`);
+  return [];
 }
 
-const getOneUser = (): User => {
-  return {};
+const getOneUser = async (userID: number): Promise<User> => {
+  const user: User = {
+    id: 1,
+    name: "User1",
+    birthDate: new Date(),
+    address: "",
+  };
+
+  return user;
 }
 
 const createUser = (userData: User): number => {

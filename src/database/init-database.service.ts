@@ -18,10 +18,11 @@ export const run = async () => {
   await client.execute(`USE ${DATABASE}`);
 
   // delete table if it exists before
-  await client.execute(`DROP TABLE IF EXISTS ${TABLE.USER}`);
+  // await client.execute(`DROP TABLE IF EXISTS ${TABLE.USER}`);
+
   // create table
   await client.execute(`
-    CREATE TABLE ${TABLE.USER} (
+    CREATE TABLE IF NOT EXISTS ${TABLE.USER} (
         id int(11) NOT NULL AUTO_INCREMENT,
         username varchar(50) NOT NULL,
         password varchar(100) NOT NULL,

@@ -1,36 +1,48 @@
 import { User } from "../models/user.model.ts";
 import userDao from '../database/user-dao.service.ts';
 
+/**
+ * Return every user in the database {User}
+ * @returns Promise<User[]>
+ */
 const getAllUsers = async (): Promise<User[]> => {
   return userDao.getAllUsers();
 };
 
-const createUser = (user: User) => {
-  // create user
-  // return userID
-  return 1;
+/**
+ * Creates one user and returns the created users ID
+ * @param {User} user
+ * @returns Promise<number> - userID
+ */
+const createUser = async (user: User): Promise<number> => {
+  return userDao.createUser(user);
 };
 
-const getOneUser = (userID: number) => {
-  // find user
-  const user: User = {
-    id: 1,
-    name: "User1",
-    birthDate: new Date(),
-    address: "",
-  };
-
-  return user;
+/**
+ * Return one user by userID
+ * @param userID number
+ * @returns Promise<User>
+ */
+const getOneUser = async (userID: number): Promise<User> => {
+  return userDao.getOneUser(userID);
 };
 
-const updateUser = (user: User) => {
-  // return userID
-  return 1;
+/**
+ * Updates one user by userID
+ * @param user User
+ * @returns Promise<number> - userID
+ */
+const updateUser = async (user: User): Promise<number> => {
+  return userDao.updateUser(user);
 };
 
-const deleteUser = (userID: number) => {
-  // return userID
-  return 1
+/**
+ * Removes one user from database by userID
+ * @param userID number
+ * @returns Promise<number> - userID
+ */
+const deleteUser = async (userID: number): Promise<number> => {
+  return userDao.deleteUser(userID);
 };
 
 export default {
