@@ -5,7 +5,7 @@ import db from "./denodb-database.service.ts";
 const app = new Application();
 const port: number = 8000;
 
-app.use(router.routes());
+app.use(router.prefix('/api').routes());
 app.use(router.allowedMethods());
 
 await db.sync({ drop: true });
